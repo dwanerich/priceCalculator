@@ -15,14 +15,14 @@ let Inventory = {
     }
 }
 
-// class Item {
-//     constructor(name, quantity = 0, price) {
-//         this.name = name;
-//         this.quantity = quantity;
-//         this.price = price;
-//     }
+class Item {
+    constructor(name, quantity = 0, price) {
+        this.name = name;
+        this.quantity = quantity;
+        this.price = price;
+    }
 
-// }
+}
 
 // let totalPrice = (name, quantity, price) => {
 //     return "Total Price: $123"
