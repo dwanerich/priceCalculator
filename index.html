@@ -9,7 +9,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Price Calculator</title>
 </head>
-<body>
+<body style="background-color: rgb(224, 223, 223);">
+    
     
     <div>
         <h2>
@@ -17,7 +18,7 @@
         </h2>
     </div>
 
-    <div class="container-fluid">
+    <div class="container">
 
         <div class="container">
             <div class="row">
@@ -57,46 +58,60 @@
 <div>
 
     <div>
-        <div></div>
         
         <div>
         </div>
         <div></div>
-
-
-        <div>
-            <h3>TOTAL PRICE: </h3>
-        </div>
         <div></div>
-    </div>
+    <div></div>
 
-    <div>
-        <h3>YOU SAVE:</h3>
-    </div>
-
+    
     <br><br><br>
 
 
     <div class="button-container">
         <div class="row" style="font-size: .2.5in;">
-            <div class="col-sm">
-                <button>Milk</button> <input type="text">
+            <div id="error" class="error-div">
+                <p style="font-size: .75in;" style="color: gray;"> Check Out</p>
+                <form id="form">
 
-            </div>
-            <div class="col-sm">
-                <button>Bread</button> <input type="text">
+                    <label for="">Milk:</label>
+                    <input type="text" class="input" id="milk" name="username" placeholder="Quantity?">
+                                        <label for="">Bread:</label>
 
-            </div>
-            <div class="col-sm">
-            <button>Apple</button> <input type="text" name="" id="">
-            </div>
-            <div class="col-sm">
-            <button>Banana</button> <input type="text">
+                    <input type="text" class="input" id="bread" name="survey" placeholder="Quantity?">
+                                        <label for="">Apple:</label>
+
+                    <input type="text" class="input" id="apple" name="survey" placeholder="Quantity?">
+                                        <label for="">Banana: </label>
+
+                    <input type="text" class="input" id="banana" name="survey" placeholder="Quantity?">
+
+
+                    <input type="submit" class="submit-button" value="Submit">
+            
+                </form>
+
+                
+            
             </div>
         </div>
     </div>
 </div>
 
+    </div>
+
+    <div style="display: flex; justify-content: space-around">
+            
+            <div class="total-price">
+                <h3>TOTAL PRICE: </h3>
+                <div>the magic goes here</div>
+            </div>
+        
+        <div class="you-save">
+            <h3>YOU SAVE:</h3>
+            <div>the magic goes here</div>
+        </div>
     </div>
     
 </body>

@@ -8,53 +8,69 @@ Inventory =
     "Banana": {"unit_price": .99}
 }
 
-// TAKE AN ARRAY OF STRINGS AND CONVERT THEM INTO AN OBJECT:
+// TAKE AN ARRAY OF STRINGS (THE ITEMS) AND CREATE AN OBJECT OF (ITEM:QUANTITY) KEY/VALUE PAIRS:
+ cart = []
 
-cart = ["Milk", "Eggs", "Apples", "Banana", "Banana"]
+cart = ["milk", "milk", "bread", "banana", "bread", "bread", "bread", "milk", "apple"]
 
-let tallyUp = (cart) => {
-    let tally = {}
+let countItems = (cart) => {
+    let countedItems = {}
     for (let i = 0; i < cart.length; i++) {
         let item = cart[i]
 
-        if(tally[item] > 0) {
-            tally[item]++
+        if(countedItems[item] > 0) {
+            countedItems[item]++
         } else {
-        tally[item] = 1;    
+        countedItems[item] = 1;    
         }
     }
-    return tally;
+    return countedItems;
 }
-console.log(tallyUp(cart))
+console.log(countItems(cart))
 
 
-// ORGANIZED THE PURCHASED ITEMS INTO AN OBJECT W/NAME QUANTITY KEY:VALUE PAIR:
+// LOGIC FOR REFACTORING ITEMS THAT ARE ON SALE:
 
-checkOut = { "Milk": 3, "Bread": 4, "Apple": 1, "Banana": 1 }
+// Item     Unit price        Sale price
+// --------------------------------------
+// Milk      $3.97            2 for $5.00
+// Bread     $2.17            3 for $6.00
 
-// INITIALIZING THE VARIABLES THAT WILL BE THE INTIAL TOTAL COST BEFORE FACTORING IN DISCOUNT:
+// Milk
+// if  quantity < 2 (price = $3.97 unit price)
+// if quantity = 2 (price = $5.00 (sale price))
+// if  quantity > 2 && (not divisble by 2) price = working quotient x sale price + remainder * unit price
+
+// Bread
+// if  quantity < 3 (totalPrice = quantity x $2.17 unit price)
+// if quantity = 3 (totalPrice = $5.00 (sale price))
+// if  quantity > 3 && (not divisble by 3) totalPrice = working quotient x sale price + remainder * unit price
+
+
+
+
+// INITIALIZING THE VARIABLES THAT WILL BE THE INTIAL TOTAL COST BEFORE FACTORING IN SALE:
 
 let milkTotal, breadTotal, appleTotal, bananaTotal;
 
-milkTotal = checkOut["Milk"] * Inventory["Milk"]["unit_price"];
-breadTotal = checkOut["Bread"] * Inventory["Bread"]["unit_price"]
-appleTotal = checkOut["Apple"] * Inventory["Apple"]["unit_price"]
-bananaTotal = checkOut["Banana"] * Inventory["Banana"]["unit_price"]
+milkTotal = cart["Milk"] * Inventory["Milk"]["unit_price"];
+breadTotal = cart["Bread"] * Inventory["Bread"]["unit_price"]
+appleTotal = cart["Apple"] * Inventory["Apple"]["unit_price"]
+bananaTotal = cart["Banana"] * Inventory["Banana"]["unit_price"]
 
 
 // LOGGING THE TOTAL PRE-DISCOUNT FACTORING:
 
-let milk = ("Milk total:", checkOut["Milk"], milkTotal)
-let bread = ("Bread total:", checkOut['Bread'], breadTotal)
-let apple = ("Apple total:", checkOut['Apple'], appleTotal)
-let banana = ("Banana total:", checkOut['Banana'], bananaTotal)
+let milk = ("Milk total:", cart["Milk"], milkTotal)
+let bread = ("Bread total:", cart['Bread'], breadTotal)
+let apple = ("Apple total:", cart['Apple'], appleTotal)
+let banana = ("Banana total:", cart['Banana'], bananaTotal)
 let total = milk + bread + apple + banana ;
 
 // console.log("Total Price: $" , total)
 // console.log('You saved total - discount today.')
 
-
-// LOGIC TO FACTOR DISCOUNT AND ADJUST PRICES ACCORDINGLY
+// LOGIC TO FACTOR SALE AND ADJUST PRICES ACCORDINGLY
 
 let applyDiscount = () => {
     if (checkOut["Milk"] >= 2) {
@@ -65,6 +81,3 @@ let applyDiscount = () => {
     }
     return "results"
 }
-
-
-
