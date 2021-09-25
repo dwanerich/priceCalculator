@@ -21,12 +21,11 @@ class Item {
         this.quantity = quantity;
         this.price = price;
     }
-
 }
 
-// let totalPrice = (name, quantity, price) => {
-//     return "Total Price: $123"
-// }
+let totalPrice = (name, quantity, price) => {
+    return "Total Price: $123"
+}
 
 // let youSaved = (name, quantity, price) => {
 //     return "You Saved xyz Today"
