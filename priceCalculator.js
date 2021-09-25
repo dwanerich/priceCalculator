@@ -8,6 +8,26 @@ Inventory =
     "Banana": {"unit_price": .99}
 }
 
+// TAKE AN ARRAY OF STRINGS AND CONVERT THEM INTO AN OBJECT:
+
+cart = ["Milk", "Eggs", "Apples", "Banana", "Banana"]
+
+let tallyUp = (cart) => {
+    let tally = {}
+    for (let i = 0; i < cart.length; i++) {
+        let item = cart[i]
+
+        if(tally[item] > 0) {
+            tally[item]++
+        } else {
+        tally[item] = 1;    
+        }
+    }
+    return tally;
+}
+console.log(tallyUp(cart))
+
+
 // ORGANIZED THE PURCHASED ITEMS INTO AN OBJECT W/NAME QUANTITY KEY:VALUE PAIR:
 
 checkOut = { "Milk": 3, "Bread": 4, "Apple": 1, "Banana": 1 }
@@ -30,19 +50,20 @@ let apple = ("Apple total:", checkOut['Apple'], appleTotal)
 let banana = ("Banana total:", checkOut['Banana'], bananaTotal)
 let total = milk + bread + apple + banana ;
 
-console.log("Total Price: $" , total)
-console.log('You saved total - discount today.')
+// console.log("Total Price: $" , total)
+// console.log('You saved total - discount today.')
 
 
 // LOGIC TO FACTOR DISCOUNT AND ADJUST PRICES ACCORDINGLY
 
 let applyDiscount = () => {
-    if (checkOut["Milk"] = 2) {
-        milkTotal = 5.00
+    if (checkOut["Milk"] >= 2) {
+        milkTotal = "discounted version"
     }
-    if(checkOut['Breadk'] = 3) {
-        milkTotal = 6.00
+    if(checkOut['Breadk'] >= 3) {
+        breadTotal = "discounted version"
     }
+    return "results"
 }
 
 
