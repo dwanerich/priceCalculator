@@ -6,7 +6,6 @@ const bananaInput = document.getElementById('bananaInput');
 const totalPrice = document.getElementById('totalPrice');
 const youSave = document.getElementById('youSave');
 
-
 form.addEventListener('submit', (e) => {
     e.preventDefault();
     let whatYouSave = "$" + 0;
