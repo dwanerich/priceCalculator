@@ -89,7 +89,5 @@ let total = milk + bread + banana + apple;
 console.log("Pre-Discounted Total:", "Total Price: $" , total)
 console.log("You Saved",'You saved (total - discount) today.')
 
-// LOGIC TO FACTOR SALE AND ADJUST PRICES ACCORDINGLY
-
 
 
