@@ -7,22 +7,21 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Price Calculator</title>
+    <title >Price Calculator</title>
 </head>
 <body class='container-fluid';>
     
-    
     <div>
-        <h2>
+        <h2 style="font-family: 'Courier New', Courier, monospace;">
             <center>
                 price calculator
             </center>
         </h2>
     </div>
 
-    <div class="container-fluid" style="background-color: rgb(225, 227, 233)"; style='color: rgb(32, 31, 112)'>
+    <div class="container-fluid" style="background-color: rgba(230, 231, 235, 0.514)";>
 
-        <table class="table">
+        <table class="table" style="font-family: 'Courier New', Courier, monospace;">
             <thead>
                 <tr>
                     <th scope="col">#</th>
@@ -31,8 +30,8 @@
                     <th scope="col">Price</th>
                 </tr>
             </thead>
-            <tbody>
-                <tr>
+            <tbody height='25px;'; width='25px';>
+                <tr >
                     <th scope="row">1</th>
                     <td>Milk</td>
                     <td>3</td>
@@ -59,39 +58,37 @@
             </tbody>
         </table>
             <div id="error" class="container-fluid">
-                <p style="font-size: 25px;" style="color: rgb(221, 221, 221)" style="font-style: white"> Expected Total: $19.02</p>
+                <p style="font-size: 25px;" style="color: rgb(221, 221, 221)" style="font-style: white"> Expected Total: $19.02 | Expected Savings $3.45</p>
 
                 <form id="form">
-                    <div class="form-group">
+                    <div class="form-group" style="font-family: 'Courier New', Courier, monospace;">
                         
-                        <label for="exampleInputPassword1">Milk</label>
+                        <label for="milk">Milk</label>
                         <input type="number" class="form-control" id="milkInput" placeholder="Milk Quantity?">
-                    </div>
-                    <label for="exampleInputPassword1">Bread</label>
-                    <input type="number" class="form-control" id="breadInput" placeholder="Bread Quantity?">
-
-                    <label for="exampleInputPassword1">Apple</label>
-                    <input type="number" class="form-control" id="appleInput" placeholder="Apple Quantity?">
-
-                    <label for="exampleInputPassword1">Banana</label>
-                    <input type="number" class="form-control" id="bananaInput" placeholder="Banana Quantity?">
-                   <br>
-                    <button type="submit" style="float: right;"id="submit" class="btn btn-light">Submit</button>
-                    <br>
-                </form>
-         
-        </div>
-    </div>
+                        <label for="bread">Bread</label>
+                        <input type="number" class="form-control" id="breadInput" placeholder="Bread Quantity?">
+                        
+                        <label for="apple">Apple</label>
+                        <input type="number" class="form-control" id="appleInput" placeholder="Apple Quantity?">
+                        
+                        <label for="banana">Banana</label>
+                        <input type="number" class="form-control" id="bananaInput" placeholder="Banana Quantity?">
+                        <br>
+                        <button type="submit" style="float: right;"id="submit" class="btn btn-outline-success" style="background-color: teal;">Check Out</button>
+                        <br>
+                    </form>
+                </div>
+            </div>
     <div style="display: flex; justify-content: space-around">
             
             <div class="total-price">
                 <h3>Total Price: </h3>
-                <div id='totalPrice'>the magic happens here</div>
+                <div id='totalPrice' style="font-family: 'Courier New', Courier, monospace;">the magic happens here</div>
             </div>
         
         <div class="you-save">
             <h3>You Saved </h3>
-            <div id='youSave'>more magic</div>
+            <div id='youSave' style="font-family: 'Courier New', Courier, monospace;">more magic</div>
         </div>
     </div>
 

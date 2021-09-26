@@ -15,6 +15,7 @@ form.addEventListener('submit', (e) => {
         breadInput.value * Inventory['bread']['unit_price'] +
         appleInput.value * Inventory['apple']['unit_price'] +
         bananaInput.value * Inventory['banana']['unit_price'];
-    youSave.innerHTML = whatYouSave + ' today.'
+    
+    youSave.innerHTML = whatYouSave
     console.log('submit defaulted');
 });
