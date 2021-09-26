@@ -9,110 +9,95 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Price Calculator</title>
 </head>
-<body style="background-color: rgb(224, 223, 223);">
+<body class='container-fluid';>
     
     
     <div>
         <h2>
-            PRICE CALCULATOR
+            <center>
+                price calculator
+            </center>
         </h2>
     </div>
 
-    <div class="container">
+    <div class="container-fluid" style="background-color: rgb(225, 227, 233)"; style='color: rgb(32, 31, 112)'>
 
-        <div class="container">
-            <div class="row">
-                <div class="col-sm">
-                    Item
-                    <div>
-                        <ul>
-                            <li>Fruit</li>
-                        </ul>
-                    </div>
-                </div>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Item</th>
+                    <th scope="col">Quantitiy</th>
+                    <th scope="col">Price</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row">1</th>
+                    <td>Milk</td>
+                    <td>3</td>
+                    <td>$8.97</td>
+                </tr>
+                <tr>
+                    <th scope="row">2</th>
+                    <td>Bread</td>
+                    <td>4</td>
+                    <td>$8.17</td>
+                </tr>
+                <tr>
+                    <th scope="row">3</th>
+                    <td>Apple</td>
+                    <td>1</td>
+                    <td>$0.89</td>
+                </tr>
+                <tr>
+                    <th scope="row">4</th>
+                    <td>Banana</td>
+                    <td>1</td>
+                    <td>$0.99</td>
+                </tr>
+            </tbody>
+        </table>
+            <div id="error" class="container-fluid">
+                <p style="font-size: 25px;" style="color: rgb(221, 221, 221)" style="font-style: white"> Expected Total: $19.02</p>
 
-
-                <div class="col-sm">
-                    Quantity
-                    <div>
-                        <ul>
-                            <li>3</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-sm">
-                    Price
-                    <div>
-                        <ul>
-                            <li>$1.25</li>
-                            <li>$1.25</li>
-                            <li>$1.25</li>
-                            <li>$1.25</li>
-                            
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-<div>
-
-    <div>
-        
-        <div>
-        </div>
-        <div></div>
-        <div></div>
-    <div></div>
-
-    
-    <br><br><br>
-
-
-    <div class="button-container">
-        <div class="row" style="font-size: .2.5in;">
-            <div id="error" class="error-div">
-                <p style="font-size: .75in;" style="color: gray;"> Check Out</p>
                 <form id="form">
+                    <div class="form-group">
+                        
+                        <label for="exampleInputPassword1">Milk</label>
+                        <input type="number" class="form-control" id="milkInput" placeholder="Milk Quantity?">
+                    </div>
+                    <label for="exampleInputPassword1">Bread</label>
+                    <input type="number" class="form-control" id="breadInput" placeholder="Bread Quantity?">
 
-                    <label for="">Milk:</label>
-                    <input type="text" class="input" id="milk" name="username" placeholder="Quantity?">
-                                        <label for="">Bread:</label>
+                    <label for="exampleInputPassword1">Apple</label>
+                    <input type="number" class="form-control" id="appleInput" placeholder="Apple Quantity?">
 
-                    <input type="text" class="input" id="bread" name="survey" placeholder="Quantity?">
-                                        <label for="">Apple:</label>
-
-                    <input type="text" class="input" id="apple" name="survey" placeholder="Quantity?">
-                                        <label for="">Banana: </label>
-
-                    <input type="text" class="input" id="banana" name="survey" placeholder="Quantity?">
-
-
-                    <input type="submit" class="submit-button" value="Submit">
-            
+                    <label for="exampleInputPassword1">Banana</label>
+                    <input type="number" class="form-control" id="bananaInput" placeholder="Banana Quantity?">
+                   <br>
+                    <button type="submit" style="float: right;"id="submit" class="btn btn-light">Submit</button>
+                    <br>
                 </form>
-
-                
-            
-            </div>
+         
         </div>
     </div>
-</div>
-
-    </div>
-
     <div style="display: flex; justify-content: space-around">
             
             <div class="total-price">
-                <h3>TOTAL PRICE: </h3>
-                <div>the magic goes here</div>
+                <h3>Total Price: </h3>
+                <div id='totalPrice'>the magic happens here</div>
             </div>
         
         <div class="you-save">
-            <h3>YOU SAVE:</h3>
-            <div>the magic goes here</div>
+            <h3>You Saved </h3>
+            <div id='youSave'>more magic</div>
         </div>
     </div>
-    
+
+        <script src="priceCalculator.js"></script>
+        <script src="onSubmit.js"></script>
+
 </body>
 </html>
+

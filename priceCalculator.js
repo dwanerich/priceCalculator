@@ -1,35 +1,46 @@
-// ORGANIZED THE GROCERY ITEMS INTO AN OBJECT OF ARRAY OF OBJECTS:
+
+// STRUCTURE THE GROCERY ITEMS INTO AN OBJECT OF ARRAY OF OBJECTS:
 
 Inventory =
 {
-    "Milk": {"unit_price": 3.97, "sale_price": 5.00},
-    "Bread": {"unit_price": 2.17, "sale_price": 6.00},
-    "Apple": {"unit_price": .89},
-    "Banana": {"unit_price": .99}
+    "milk": {"unit_price": 3.97, "sale_price": 5.00},
+    "bread": {"unit_price": 2.17, "sale_price": 6.00},
+    "apple": {"unit_price": 0.89},
+    "banana": {"unit_price": 0.99}
 }
 
 // TAKE AN ARRAY OF STRINGS (THE ITEMS) AND CREATE AN OBJECT OF (ITEM:QUANTITY) KEY/VALUE PAIRS:
- cart = []
 
 cart = ["milk", "milk", "bread", "banana", "bread", "bread", "bread", "milk", "apple"]
 
+let itemResults = {}
+
 let countItems = (cart) => {
-    let countedItems = {}
     for (let i = 0; i < cart.length; i++) {
         let item = cart[i]
 
-        if(countedItems[item] > 0) {
-            countedItems[item]++
+        if(itemResults[item] > 0) {
+            itemResults[item]++
         } else {
-        countedItems[item] = 1;    
+        itemResults[item] = 1;    
         }
     }
-    return countedItems;
+    return itemResults;
 }
-console.log(countItems(cart))
+console.log("Counted Each Item: ", countItems(cart))
 
+// INITIALIZING THE VARIABLES THAT WILL BE THE INTIAL TOTAL COST BEFORE FACTORING IN SALE:
 
-// LOGIC FOR REFACTORING ITEMS THAT ARE ON SALE:
+let milkTotal, breadTotal, appleTotal, bananaTotal;
+
+milkTotal = itemResults["milk"] * Inventory["milk"]["unit_price"];
+breadTotal = itemResults["bread"] * Inventory["bread"]["unit_price"]
+bananaTotal = itemResults["banana"] * Inventory["banana"]["unit_price"]
+appleTotal = itemResults["apple"] * Inventory["apple"]["unit_price"]
+
+// console.log("PREDISCOUNTED RESULTS", Object.values(itemResults));
+
+// LOGIC FOR HANDLING ADJUSTED PRICES FOR ITEMS ON SALE:
 
 // Item     Unit price        Sale price
 // --------------------------------------
@@ -46,38 +57,39 @@ console.log(countItems(cart))
 // if quantity = 3 (totalPrice = $5.00 (sale price))
 // if  quantity > 3 && (not divisble by 3) totalPrice = working quotient x sale price + remainder * unit price
 
+let adjustDiscount = (itemResults) => {
+    let adjustedTotalSum = 0,
+    adjustedMilkTotal = 0,
+    adjustedBreadTotal = 0,
+    appleTotal = 0;
 
+    if (itemResults['milk'] >= 2)
+     {
+        console.log('Discount applies to milk |', "pre-discount :", milkTotal)
+        itemResults['milk']
 
+    }
 
-// INITIALIZING THE VARIABLES THAT WILL BE THE INTIAL TOTAL COST BEFORE FACTORING IN SALE:
+    if(itemResults['bread'] >=3) {
+        console.log('Discount applies to bread |', "pre-discount:", breadTotal)
+    }
 
-let milkTotal, breadTotal, appleTotal, bananaTotal;
+}
 
-milkTotal = cart["Milk"] * Inventory["Milk"]["unit_price"];
-breadTotal = cart["Bread"] * Inventory["Bread"]["unit_price"]
-appleTotal = cart["Apple"] * Inventory["Apple"]["unit_price"]
-bananaTotal = cart["Banana"] * Inventory["Banana"]["unit_price"]
+adjustDiscount(itemResults)
+    
+// PRE-DISCOUNT ITEM TOTALS:
 
+let milk = ("Milk total:", cart["milk"], milkTotal)
+let bread = ("Bread total:", cart['bread'], breadTotal)
+let banana = ("Banana total:", cart['banana'], bananaTotal)
+let apple = ("Apple total:", cart['apple'], appleTotal)
+let total = milk + bread + banana + apple;
 
-// LOGGING THE TOTAL PRE-DISCOUNT FACTORING:
-
-let milk = ("Milk total:", cart["Milk"], milkTotal)
-let bread = ("Bread total:", cart['Bread'], breadTotal)
-let apple = ("Apple total:", cart['Apple'], appleTotal)
-let banana = ("Banana total:", cart['Banana'], bananaTotal)
-let total = milk + bread + apple + banana ;
-
-// console.log("Total Price: $" , total)
-// console.log('You saved total - discount today.')
+console.log("Pre-Discounted Total:", "Total Price: $" , total)
+console.log("You Saved",'You saved (total - discount) today.')
 
 // LOGIC TO FACTOR SALE AND ADJUST PRICES ACCORDINGLY
 
-let applyDiscount = () => {
-    if (checkOut["Milk"] >= 2) {
-        milkTotal = "discounted version"
-    }
-    if(checkOut['Breadk'] >= 3) {
-        breadTotal = "discounted version"
-    }
-    return "results"
-}
+
+

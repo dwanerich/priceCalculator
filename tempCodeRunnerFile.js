@@ -1,9 +1,3 @@
-applyDiscount = () => {
-    if (checkOut["Milk"] >= 2) {
-        milkTotal = "discounted version"
-    }
-    if(checkOut['Breadk'] >= 3) {
-        breadTotal = "discounted version"
-    }
-    return "results"
-}
+
+const errorElement = document.getElementById("error")
+const diveIn = document.getElementById('gif-div');
