@@ -7,4 +7,4 @@ set up instruction
 -pre-discounted price total
 -discounted price total.
 -non-discounted item prices.
--total save after dicount.
+-total saved after applied discount.
