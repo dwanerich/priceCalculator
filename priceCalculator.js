@@ -11,7 +11,7 @@ Inventory =
 
 // TAKE AN ARRAY OF STRINGS (THE ITEMS) AND CREATE AN OBJECT OF (ITEM:QUANTITY) KEY/VALUE PAIRS:
 
-cart = ["milk","milk","bread", "banana","bread","bread","bread","milk","apple"]
+cart = ["milk","milk","bread","banana","bread","bread","bread","milk","apple"]
 
 let itemResults = {}
 
