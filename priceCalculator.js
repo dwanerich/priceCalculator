@@ -27,14 +27,19 @@ let countItems = (cart) => {
     }
     return itemResults;
 }
+// THE LOGGING OF SHOPPING CART ITEM-QUANTITY KEY/VALUE PAIRS:
 console.log("Counted Items Method: ", countItems(cart))
 
 
+//  HELPER VARIABLES TO ACCESS ITEM QUANTITIES IN CART:
 const milkQuantity = itemResults['milk']
 const breadQuantity = itemResults['bread']
 const appleQuantity = itemResults['apple']
 const bananaQuantity = itemResults['banana']
 
+// METHODS TO ADJUST PRICE WHEN DISCOUNT APPLIES BASED ON QUALIFYING QUANTITIES:
+
+// MILK DISCOUNT ADJUST METHOD:
 
 let milkDiscount = () => {
     
@@ -59,9 +64,12 @@ let milkDiscount = () => {
             
             adjustedMilk = ((milkQuantity - 1) / 2) * (Inventory['milk']['sale_price']) + (3.97)
         }
+        // LOGGING OF MILK TOTAL WITH ADJUSTED DISCOUNT:
         console.log('Discount applies to milk |', "adjusted-milk :", adjustedMilk)
         return adjustedMilk;
     }
+
+    // BREAD DISCOUNT ADJUSTOR METHOD
     
     let breadDiscount = () => {
         
@@ -93,7 +101,8 @@ let milkDiscount = () => {
     }
     return adjustedBread;
 }
-// INITIALIZING THE VARIABLES THAT WILL BE THE INTIAL TOTAL COST BEFORE FACTORING IN SALE:
+
+// INITIALIZATION OF VARIABLE NAMES OF BOTH PRE & POST DISCOUNT TOTALS:
 
 let milkTotal, breadTotal, appleTotal, bananaTotal, subTotal, total;
 
@@ -104,24 +113,14 @@ bananaTotal = bananaQuantity * Inventory["banana"]["unit_price"];
 subTotal = milkTotal + breadTotal + appleTotal + bananaTotal;
 total = bananaTotal + appleTotal + milkDiscount() + breadDiscount();
 moneySaved = total - subTotal;
-console.log('PRE-DISCOUNTED', subTotal)
-console.log('FINAL ADJUSTED TOTAL' , total)
 
-console.log("1 Apple Total:", "Total Price: $", appleTotal)
-console.log("1 Banana Total:", "Total Price: $", bananaTotal)
+    console.log('PRE-DISCOUNTED TOTAL:', subTotal)
+    console.log('FINAL ADJUSTED TOTAL:' , total)
+
+console.log(`${appleQuantity} Apple's Total:`, appleTotal)
+console.log(`${bananaQuantity} Banana's Total`, bananaTotal)
 
 
-// PRE-DISCOUNT ITEM TOTALS:
+// TOTAL MONEY SAVED:
 
 console.log("you saved ", moneySaved, " today.")
-
-
-
-    
-    
-
-
-    
-
-
-
