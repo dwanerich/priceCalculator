@@ -11,13 +11,16 @@ Inventory =
 
 // TAKE AN ARRAY OF STRINGS (THE ITEMS) AND CREATE AN OBJECT OF (ITEM:QUANTITY) KEY/VALUE PAIRS:
 
-cart = ["milk","milk","bread","banana","bread","bread","bread","milk","apple"]
+cart = ["milk","milk","bread","banana","bread","bread","bread","milk","apple"];
+cart2 = ['milk', 'bread', "apple", 'banana','milk', 'bread', 'bread', 'bread', 'milk'];
+cart3 = ['milk', 'apple', 'banana', 'milk']
+
 
 let itemResults = {}
 
-let countItems = (cart) => {
-    for (let i = 0; i < cart.length; i++) {
-        let item = cart[i]
+let countItems = (arr) => {
+    for (let i = 0; i < arr.length; i++) {
+        let item = arr[i]
 
         if(itemResults[item] > 0) {
             itemResults[item]++
@@ -27,15 +30,41 @@ let countItems = (cart) => {
     }
     return itemResults;
 }
+
 // THE LOGGING OF SHOPPING CART ITEM-QUANTITY KEY/VALUE PAIRS:
-console.log("Counted Items Method: ", countItems(cart))
+console.log("Counted Items Method: ", countItems(cart3))
 
 
 //  HELPER VARIABLES TO ACCESS ITEM QUANTITIES IN CART:
-const milkQuantity = itemResults['milk']
-const breadQuantity = itemResults['bread']
-const appleQuantity = itemResults['apple']
-const bananaQuantity = itemResults['banana']
+let milkQuantity, breadQuantity, appleQuantity, bananaQuantity;
+
+milkQuantity = itemResults['milk']
+breadQuantity = itemResults['bread']
+appleQuantity = itemResults['apple'];
+bananaQuantity = itemResults['banana'];
+
+if (milkQuantity === undefined) {
+    (milkQuantity = 0) } 
+    else {
+    milkQuantity = itemResults['milk']
+    }
+if (breadQuantity === undefined) {
+    (breadQuantity = 0) }
+    else {
+    breadQuantity = itemResults['bread']
+    }
+    if (appleQuantity === undefined) {
+    (appleQuantity = 0) }
+    else {
+        (appleQuantity = itemResults['apple'])
+    }
+    if (bananaQuantity === undefined) {
+        (bananaQuantity = 0) } else {
+        bananaQuantity = itemResults['banana']
+    }
+
+
+console.log(breadQuantity, "this is how much bread you have in cart 2")
 
 // METHODS TO ADJUST PRICE WHEN DISCOUNT APPLIES BASED ON QUALIFYING QUANTITIES:
 
@@ -53,15 +82,13 @@ let milkDiscount = () => {
         }
         else if(milkQuantity === 2) {
             adjustedMilk = 5.00
-            console.log('2 milks discount', adjustedMilk)
-            
+            console.log('2 milks discount', adjustedMilk)     
         }
         else if (milkQuantity > 2 && milkQuantity % 2 === 0) {
             adjustedMilk = (milkQuantity / 2) * 5.00
         }
         
-        else if (milkQuantity > 2 && (milkQuantity % 2 != 0)) {
-            
+        else if (milkQuantity > 2 && (milkQuantity % 2 != 0)) {  
             adjustedMilk = ((milkQuantity - 1) / 2) * (Inventory['milk']['sale_price']) + (3.97)
         }
         // LOGGING OF MILK TOTAL WITH ADJUSTED DISCOUNT:
@@ -101,18 +128,20 @@ let milkDiscount = () => {
     }
     return adjustedBread;
 }
+    console.log("return zero function", breadQuantity)
 
 // INITIALIZATION OF VARIABLE NAMES OF BOTH PRE & POST DISCOUNT TOTALS:
 
 let milkTotal, breadTotal, appleTotal, bananaTotal, subTotal, total;
 
 milkTotal = milkQuantity * Inventory["milk"]["unit_price"];
+
 breadTotal = breadQuantity * Inventory["bread"]["unit_price"];
 appleTotal = appleQuantity * Inventory["apple"]["unit_price"];
 bananaTotal = bananaQuantity * Inventory["banana"]["unit_price"];
 subTotal = milkTotal + breadTotal + appleTotal + bananaTotal;
-total = bananaTotal + appleTotal + milkDiscount() + breadDiscount();
-moneySaved = subTotal - total;
+total = milkDiscount() + breadDiscount() + bananaTotal + appleTotal;
+moneySaved = total - subTotal;
 
     console.log('PRE-DISCOUNTED TOTAL:', subTotal)
     console.log('FINAL ADJUSTED TOTAL:' , total)
