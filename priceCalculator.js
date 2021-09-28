@@ -15,7 +15,7 @@ let emptyCart = [];
 emptyCart = emptyCart.length
 cart1 = ["milk","milk","bread","banana","bread","bread","bread","milk","apple"];
 cart2 = ['milk', 'bread', "apple", 'banana','milk', 'bread', 'bread', 'bread', 'milk'];
-cart3 = ['milk', 'apple', 'banana', 'milk']
+cart3 = ['milk', 'apple']
 
 let countItems = (arr) => {
     itemResults = {}
