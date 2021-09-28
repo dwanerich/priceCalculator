@@ -17,8 +17,6 @@ cart1 = ["milk","milk","bread","banana","bread","bread","bread","milk","apple"];
 cart2 = ['milk', 'bread', "apple", 'banana','milk', 'bread', 'bread', 'bread', 'milk'];
 cart3 = ['milk', 'apple', 'banana', 'milk']
 
-
-
 let countItems = (arr) => {
     itemResults = {}
     if (arr.length === 0) {
