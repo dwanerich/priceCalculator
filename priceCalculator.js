@@ -133,7 +133,7 @@ appleTotal = appleQuantity * Inventory["apple"]["unit_price"];
 bananaTotal = bananaQuantity * Inventory["banana"]["unit_price"];
 subTotal = milkTotal + breadTotal + appleTotal + bananaTotal;
 total = milkDiscount() + breadDiscount() + bananaTotal + appleTotal;
-moneySaved = total - subTotal;
+moneySaved = subTotal - total;
 
     console.log('PRE-DISCOUNTED TOTAL:', subTotal)
     console.log('FINAL ADJUSTED TOTAL:' , total)
